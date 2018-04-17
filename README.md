@@ -14,6 +14,6 @@
 
 ## js基础
 
-- 任务一：[零基础JavaScript编码（一）](https://github.com/yochii/baidu-ife/blob/master/ife_js_1.html)
-- 任务二：[零基础JavaScript编码（二）](https://github.com/yochii/baidu-ife/blob/master/ife_js_2.html)
+- [任务一：零基础JavaScript编码（一）](https://github.com/yochii/baidu-ife/blob/master/ife_js_1.html)
+- [任务二：零基础JavaScript编码（二）](https://github.com/yochii/baidu-ife/blob/master/ife_js_2.html)
 
