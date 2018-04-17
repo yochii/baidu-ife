@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            display: block;
+        }
+        body{
+            background: #333333;
+            margin:0 auto;
+        }
+        .container{
+            margin: 0 auto;
+            width: 892px;
+            height: 1386px;
+            background: white;
+            padding: 0 44px;
+        }
+        header{
+            width: 892px;
+            height: 61px;
+            overflow: hidden;
+            display: block;
+            border-bottom: 2px solid #938e8c;
+            margin: 0 auto;
+        }
+        header .head{
+            float: left;
+            background: #d45d5c;
+            width: 100px;
+            height: 61px;
+            font-size: 12px;
+            color: #ffffff;
+            font-family: Hei;
+            padding:0 5px;
+            line-height: 100px;
+
+            }
+        header .date{
+            float: right;
+            color: #d45d5c;
+            font-size: 12px;
+            font-family: hei;
+            line-height: 100px;
+            }
+
+        section{
+            position: relative;
+            margin: 30px auto;
+            overflow: hidden;
+            width: inherit;
+        }
+        section:after{
+            clear: both;
+            content: '.';
+            display: block;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+        .title-field{
+            height:310px;
+        }
+        .pic-field{
+            float: left;
+            width:641px;
+            }
+        .word-field{
+            position: relative;
+            float: right;
+            width:203px;
+            height: 310px;
+            border-top: 2px solid #d45d5c;
+            margin:0 0 20px 20px;
+
+        }
+        .word-field .title{
+            font-size: 24px;
+            font-family: "LiHei Pro";
+            line-height: 40px;
+            text-decoration: underline;
+        }
+
+        .word-field .article{
+            font-style: italic;
+            font-size: 12px;
+            color: #676767;
+            font-family: Kai;
+            line-height: 10px;
+        }
+        .count{
+            font-size: 116px;
+            color: #75b85b;
+            font-family: Hei;
+            text-decoration: underline;
+            font-style: italic;
+        }
+        .bottom_version{
+            position: absolute;
+            bottom: 0;
+            width: inherit;
+            height: auto;
+            padding-bottom: 0;
+            overflow: auto;
+        }
+        bottom_version:after{
+            clear: both;
+            content: '.';
+            display: block;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+
+        }
+        .version{
+            float:left;
+            font-size: 55px;
+            color: #cc8091;
+            font-family: Hei;
+        }
+        .subversion{
+            font-size: 21px;
+            color: #cc8091;
+            font-family: Hei;
+        }
+        .description{
+            font-size: 12px;
+            color: #cc8091;
+            font-family: Hei;
+        }
+
+        .question-part{
+            width:641px;
+            overflow: auto;
+            font-family: "Songti SC";
+            font-size: 12px;
+            line-height:16px;
+            color: #767777;
+        }
+        .one-third-left{
+            float: left;
+            width: 35%;
+            margin-right: 30px;
+            }
+        .one-third-middle{
+            margin-left: 30px;
+            margin-right: 30px;
+            overflow: hidden;
+            }
+
+        .one-third-right{
+            float: right;
+            width: 20%;
+            margin-left: 30px;
+        }
+
+        h5{
+            font-family: Hei;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+        .one-third-left h5{
+            color: #767777;
+
+        }
+        .one-third-middle h5{
+            color: #d2994f;
+
+        }
+        .one-third-right h5{
+            color: #cc7680;
+        }
+
+        .tech-front-left{
+            float: left;
+            margin-right: 20px ;
+            font-size: 12px;
+            color: #767777;
+            font-family: "Songti TC";
+            width: 415px;
+
+        }
+        .tech-front-left span{
+            margin-top: 5px;
+            margin-right: 10px;
+            float: left;
+            font-size: 70px;
+            color:#f5e327;
+            font-family: Hei;
+        }
+        .tech-front-left p{
+            margin-top: 5px;
+        }
+
+
+        .front-titile {
+
+            font-family: Hei;
+            font-size: 42px;
+            font-weight: 700;
+            color: #11456b;
+            line-height: 50px;
+            border-bottom: 2px solid #11456b;
+            width: 415px;
+        }
+        .front-titile span{
+            font-size: 72px;
+            font-style: italic;
+            color: #f5e327;
+            line-height: 90px;
+        }
+
+
+        .in_pic{
+            float: right;
+            margin: 5px 0 5px 10px;
+        }
+
+        .tech-front-right{
+            margin-top: 20px;
+            width: 457px;
+            overflow: auto;
+
+        }
+        .front-right-bottom{
+            position: relative;
+            background:#eeedd7 ;
+            width: 459px;
+            height: 318px;
+            margin-top: 20px;
+
+        }
+        .left-bottom{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: #d45d5c;
+            width: 260px;
+            height: 160px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="head">ife.baidu.com</div>
+        <div class="date">2018.4</div>
+
+
+    </header>
+
+    <section>
+        <div class="title-field">
+        <div class="pic-field">
+            <img src="src/img1.gif">
+        </div>
+        <div class="word-field">
+            <span class="title">
+                <p><b>A</b>BOUT</p>
+                <p><strong>T</strong>ECHNOLOGE</p>
+            </span>
+            <p class="article">
+                About technologe About technologe About technologe
+            </p>
+            <p class="count">
+                700
+            </p>
+            <div class="bottom_version">
+            <span class="version">3.2 </span>
+            <span class="version">
+                <p class="subversion">css</p>
+                <p class="description">csscsscsscss</p>
+            </span>
+            </div>
+
+        </div>
+
+        </div>
+
+    </section>
+    <section>
+        <div class ="question-part">
+            <div class="one-third-left">
+                <h5>What</h5>
+                <p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+            </div>
+            <div class="one-third-right">
+                <h5>When</h5>
+                <p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+            </div>
+            <div class="one-third-middle">
+                <h5>How</h5>
+                <p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+                <p>
+                </p>
+            </div>
+
+
+
+
+        </div>
+    </section>
+    <section>
+        <div class="tech-front-left">
+            <div class="front-titile">
+                <span>THE</span>
+                <p>TECHNOLOGE OF FRONT</p>
+                <p>前端技术领域</p>
+            </div>
+            <p>
+                <span>前</span>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端
+                <img class="in_pic" src="src/img3.jpg">
+                前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端
+                前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端
+                前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端
+                前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端
+                前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端
+            </p>
+
+        </div>
+        <div class="tech-front-right">
+            <div class="front-right-top">
+                <img src="src/img2.jpg">
+            </div>
+            <div class="front-right-bottom">
+                <div class="left-bottom">
+                </div>
+                <div class="right-bottom">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

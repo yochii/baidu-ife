@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: #999999;
+            margin:0px;
+        }
+        .grayblock{
+            background-color: #eeeeee;
+            width: 400px;
+            height: 200px;
+
+
+        }
+        .center{
+            position: absolute ;
+            top: 50%;
+            left: 50%;
+            margin: -100px 0 0 -200px ;
+            overflow: hidden;
+
+        }
+
+        .circle{
+            width: 50px;
+            height: 50px;
+            background: yellow;
+            -moz-border-radius: 25px;
+            -webkit-border-radius: 25px;
+            border-radius: 25px;
+
+        }
+        .left_top{
+            position: absolute;
+            top: -25px;
+            left: -25px;
+
+        }
+        .right_bottom{
+            position: absolute;
+
+            bottom: -25px;
+            right: -25px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="center grayblock">
+    <div class="circle left_top" ></div>
+    <div class="circle right_bottom" ></div>
+
+    </div>
+</body>
+</html>
