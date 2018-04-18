@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ife_js_4</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            text-align: center;
+        }
+
+        .queue{
+            display: flex;
+            overflow: auto;
+            align-items: flex-end;
+        }
+
+        .red-box{
+            display: flex;
+            width: 30px;
+            height:10px;
+            background-color: #d45d5c;
+            margin-left:5px;
+            text-align: center;
+        }
+
+
+    </style>
+   </head>
+<body>
+<div class="content">
+    <div class="in_content">
+        <span>请输入数字<input id ="aqi-input" type="text"></span>
+        <button id="left_in">左侧入</button>
+        <button id="right_in">右侧入</button>
+        <button id="left_out">左侧出</button>
+        <button id="right_out">右侧出</button>
+        <div class="queue"></div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+        var queue = document.querySelector(".queue");
+
+        function isInRange(input){
+            return (10 <= input)&& (input <= 100)
+        }
+
+        function create(){
+            var size = 60;
+            if(checkSize(size)){
+                var input = document.querySelector("#aqi-input");
+                var height = input.value;
+                if (isInRange(height)) {
+                    var item = document.createElement("div");
+                    item.setAttribute("class", "red-box");
+                    item.style.height = height + "px";
+                }
+                else {
+                    alert("please input number range in (10,100).")
+                }
+                return item;
+            }
+            else{
+                alert("size is"+size);
+            }
+        }
+
+        function checkSize(size){
+            return (queue.childElementCount-size);
+        }
+
+        function push(direct) {
+            var item = create();
+            if (direct ==="left"){
+                queue.insertBefore(create(),queue.firstElementChild);
+            }
+            else if(direct ==="right"){
+                queue.appendChild(create());
+            }
+        }
+
+        function remove(direct){
+            if(direct === "left"){
+                var first = queue.firstElementChild;
+                alert(first.style.height);
+                queue.removeChild(first);
+            }
+            else{
+                var last = queue.lastElementChild;
+                alert(last.style.height);
+                queue.removeChild(last);
+            }
+        }
+
+
+        function bubble_sort(){
+            queue.childElementCount
+
+
+        }
+
+
+
+        var btn_leftin = document.querySelector("#left_in");
+        btn_leftin.onclick=function(){push("left")};
+
+        var btn_rightin = document.querySelector("#right_in");
+        btn_rightin.onclick=function(){push("right")};
+
+        var btn_leftin = document.querySelector("#left_out");
+        btn_leftin.onclick=function(){remove("left")};
+
+        var btn_leftin = document.querySelector("#right_out");
+        btn_leftin.onclick=function(){remove("right")};
+
+</script>
+
+</body>
+</html>
