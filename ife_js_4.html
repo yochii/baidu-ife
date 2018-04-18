@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ife_js_4</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            text-align: center;
+        }
+
+        .queue{
+            overflow: auto;
+        }
+
+        .red-box{
+            width: 50px;
+            height: 50px;
+            background-color: #d45d5c;
+            color:white;
+            font-size: 20px;
+            margin:10px;
+            text-align: center;
+            float: left;
+        }
+
+
+    </style>
+   </head>
+<body>
+<div class="content">
+    <div class="in_content">
+        <span>请输入数字<input id ="aqi-input" type="text"></span>
+        <button id="left_in">左侧入</button>
+        <button id="right_in">右侧入</button>
+        <button id="left_out">左侧出</button>
+        <button id="right_out">右侧出</button>
+        <div class="queue"></div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+        var queue = document.querySelector(".queue");
+
+        function isNumber(input){
+            return input ? !isNaN(input):false;
+        }
+
+        function create(){
+            var input = document.querySelector("#aqi-input");
+            var text = input.value;
+            if(isNumber(text)){
+                var item = document.createElement("div");
+                item.setAttribute("class","red-box");
+                item.textContent = text;
+            }
+            else{
+                alert("please input number.")
+            }
+            return item;
+        }
+
+        function push(direct) {
+            var item = create();
+            if (direct ==="left"){
+                queue.insertBefore(create(),queue.firstElementChild);
+            }
+            else if(direct ==="right"){
+                queue.appendChild(create());
+            }
+        }
+
+        function remove(direct){
+            if(direct === "left"){
+                var first = queue.firstElementChild;
+                alert(first.textContent);
+                queue.removeChild(first);
+            }
+            else{
+                var last = queue.lastElementChild;
+                alert(last.textContent);
+                queue.removeChild(last);
+            }
+        }
+
+        var btn_leftin = document.querySelector("#left_in");
+        btn_leftin.onclick=function(){push("left")};
+
+        var btn_rightin = document.querySelector("#right_in");
+        btn_rightin.onclick=function(){push("right")};
+
+        var btn_leftin = document.querySelector("#left_out");
+        btn_leftin.onclick=function(){remove("left")};
+
+        var btn_leftin = document.querySelector("#right_out");
+        btn_leftin.onclick=function(){remove("right")};
+
+
+</script>
+
+</body>
+</html>
