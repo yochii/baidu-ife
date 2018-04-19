@@ -38,13 +38,17 @@
         <button id="right_in">右侧入</button>
         <button id="left_out">左侧出</button>
         <button id="right_out">右侧出</button>
+        <button id="bubble">冒泡排序</button>
         <div class="queue"></div>
 
 </div>
 </div>
 
 <script type="text/javascript">
+        var arr=[];
+        var state = [];
         var queue = document.querySelector(".queue");
+        var bars = queue.childNodes;
 
         function isInRange(input){
             return (10 <= input)&& (input <= 100)
@@ -74,7 +78,7 @@
             return (queue.childElementCount-size);
         }
 
-        function push(direct) {
+        function insert(direct) {
             var item = create();
             if (direct ==="left"){
                 queue.insertBefore(create(),queue.firstElementChild);
@@ -96,27 +100,71 @@
                 queue.removeChild(last);
             }
         }
+        function get_height(item){
+            return parseInt(item.style.height.slice(0,2))
+        }
 
+        function swap_height(item1,item2){
+            var item1_height = get_height(item1) + "px";
+            item1.style.height = item2.style.height;
+            item2.style.height = item1_height;
+        }
 
-        function bubble_sort(){
-            queue.childElementCount
+        function get_arr() {
+            var children = queue.childNodes;
+            children.forEach(function(t){
+                arr.push(get_height(t));
+            })
+        }
 
+        function set_height(item,height){
+            item.style.height = height +"px";
 
         }
 
+        var draw = function(){
+            var s = state.shift() || [];
+            for(var i=0;i<bars.length ;i++){
+                set_height(bars[i],s[i]);
+            }
+        }
+
+
+        var bubbleSort = function(arr){
+            arr.forEach(function (t,i) {
+                for (var j = 0;j< arr.length-i-1;j++){
+                    if ((arr[j])>(arr[j+1])){
+                        arr[j]   = arr[j] + arr[j+1];
+                        arr[j+1] = arr[j] - arr[j+1];
+                        arr[j]   = arr[j] - arr[j+1];
+                        state.push(arr.slice());
+//                        swap_height(queue_list[j],queue_list[j+1])
+                    }
+                }
+            })
+        }
 
 
         var btn_leftin = document.querySelector("#left_in");
-        btn_leftin.onclick=function(){push("left")};
+        btn_leftin.onclick=function(){insert("left")};
 
         var btn_rightin = document.querySelector("#right_in");
-        btn_rightin.onclick=function(){push("right")};
+        btn_rightin.onclick=function(){insert("right")};
 
         var btn_leftin = document.querySelector("#left_out");
         btn_leftin.onclick=function(){remove("left")};
 
         var btn_leftin = document.querySelector("#right_out");
         btn_leftin.onclick=function(){remove("right")};
+
+        var btn_bubble = document.querySelector("#bubble");
+
+        btn_bubble.onclick=function(){
+            get_arr();
+            bubbleSort(arr);
+            setInterval(draw,500);
+        };
+
 
 </script>
 
