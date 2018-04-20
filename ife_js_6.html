@@ -48,7 +48,7 @@
 </div>
 
 <script type="text/javascript">
-        var queue,input,input_list;
+        var queue,input,input_list,data;
         const regex = /[\s,，、 ]/
 
         function create(word){
@@ -95,13 +95,17 @@
         }
 
         function search(){
+            data = [];
             input = document.querySelector("#aqi-input").value;
-            if (input != null && input.length > 0){
-                queue.childNodes.forEach(function (t) {
-                    t.innerHTML=t.innerHTML.replace(new RegExp(input, 'g'), '<span class="found">' + input + '</span>')
-
-                })
-            }
+            queue = document.querySelector(".queue")
+            queue.childNodes.forEach(function(t){
+                data.push(t.innerText);});
+            queue.innerHTML = data.map(function(d){
+                if (input != null && input.length > 0 ){
+                    d = d.replace(new RegExp(input, 'g'), '<span class="found">' + input + '</span>')
+                }
+                return '<div class="red-box">' + d +'</div>'
+            }).join('');
         }
 
         var btn_leftin = document.querySelector("#left_in");
