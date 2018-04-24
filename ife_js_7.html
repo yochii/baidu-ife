@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>ife_js_7</title>
+    <style>
+        div{
+            border:1px solid black;
+            padding:10px;
+            float: left;
+            margin:5px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id = "container">
+
+</div>
+<div>
+<label>请输入树高度：<input id="height" type="text"></label>
+<button id="btn_ct">生成</button>
+
+
+<button id ="btn_pre"> 前序遍历</button>
+<button id ="btn_in"> 中序遍历</button>
+<button id ="btn_post"> 后序遍历</button>
+</div>
+<script type="text/javascript">
+    var content = document.querySelector("#container");
+    var timer = 0;
+
+
+    function createTree(depth,parent){
+        parent.innerHTML="";//如果div 内容有之前生成的树，清空。
+        if(depth != 0){
+            var left_item = document.createElement("div")
+            var right_item = document.createElement("div")
+            parent.appendChild(left_item);
+            parent.appendChild(right_item);
+            depth = depth- 1;
+            createTree(depth,left_item);
+            createTree(depth,right_item);
+        }
+        else{
+            return parent;
+        }
+    }
+
+    function showNode(node) {
+        // alert(node.tagName);
+        node.style.backgroundColor="#ffffff";
+        setTimeout(function () {
+            node.style.backgroundColor="#ff524a";
+        },timer+=500);
+        setTimeout(function () {
+            node.style.backgroundColor="#ffffff";
+        },timer+=500);
+    }
+    function preOrder(root) {
+        if(root){
+            showNode(root);
+            preOrder(root.children[0]);
+            preOrder(root.children[1]);
+        }
+    }
+    function inOrder(root) {
+        if(root){
+            inOrder(root.children[0]);
+            showNode(root);
+            inOrder(root.children[1]);
+        }
+    }
+    function postOrder(root) {
+        if (root){
+            postOrder(root.children[0]);
+            postOrder(root.children[1]);
+            showNode(root);
+        }
+    }
+
+    var btn_ct=document.querySelector("#btn_ct");
+    btn_ct.onclick = function(){
+        var height = document.querySelector("#height").value;
+        createTree(parseInt(height),content);
+    };
+
+    var tree = document.querySelector("#container")
+
+    var btn_pre = document.querySelector("#btn_pre")
+    btn_pre.onclick = function(){preOrder(tree)};
+
+    var btn_in = document.querySelector("#btn_in")
+    btn_in.onclick = function(){inOrder(tree)};
+
+    var btn_post = document.querySelector("#btn_post")
+    btn_post.onclick = function(){postOrder(tree)};
+
+</script>
+</body>
+</html>
