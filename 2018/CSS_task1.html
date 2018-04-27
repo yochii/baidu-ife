@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task1</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+
+
+        }
+
+        .content{
+            width:70px;
+        }
+        .title{
+            margin:0 auto;
+            width:fit-content;
+        }
+        .ribbon{
+            margin:0 auto;
+            width:0;
+            border-bottom:3px dodgerblue solid;
+        }
+        .full-length{
+            width:inherit;
+            transition:width 1s;
+        }
+        .blue{
+            transition:color 1s;
+            color:dodgerblue;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="title">前端学院</div>
+    <div class="ribbon"></div>
+</div>
+<div>
+<button id = "trigger">改变样式</button>
+</div>
+<script type="text/javascript">
+    var ribbon = document.querySelector(".ribbon")
+    var title = document.querySelector(".title")
+
+    function playAnime() {
+        ribbon.className = "ribbon";
+        title.className = "title";
+        window.requestAnimationFrame(function () {
+            window.requestAnimationFrame(function () {
+                ribbon.classList.add('full-length');
+                title.classList.add('blue');
+            })
+        })
+    }
+
+    var button = document.querySelector("#trigger");
+    button.onclick = function(){playAnime()};
+
+</script>
+</body>
+</html>
